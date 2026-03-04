@@ -1,0 +1,10 @@
+# usuario_logado = False
+# se NÃO usuario_logado:
+#     exibir "Faça login para continuar"
+usuario_logado = False
+if not usuario_logado:
+    print("Faça login para continuar")
+else :
+    print("Bem-vindo ao sistema!")
+    # esse ELSE eu coloque para mostrar que o código só vai entrar nessa parte se o usuário estiver logado, ou seja, se a condição do IF for falsa.
+    

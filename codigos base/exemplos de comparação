@@ -1,0 +1,15 @@
+# idade = 16
+# idade > 20 -> Falso
+idade = 16
+if idade > 20:
+    print("Idade é maior que 20")
+else:
+    print("Idade não é maior que 20")
+
+# Numero = 10
+# Numero >= 8 -> Verdadeiro
+numero = 10
+if numero >= 8:
+    print("Número é maior ou igual a 8")
+else:
+    print("Número é menor que 8")

@@ -1,0 +1,7 @@
+# Numero = 10
+# Numero != 12 -> Verdadeiro
+numero = 10
+if numero != 12:
+    print("Número é diferente de 12")
+else:
+    print("Número é igual a 12")

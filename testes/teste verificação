@@ -1,0 +1,6 @@
+idade = 17
+estudante = False
+if idade >=18 or estudante:
+    print("tem acesso ao cinema")
+else:
+    print("nao tem acesso ao cinema")

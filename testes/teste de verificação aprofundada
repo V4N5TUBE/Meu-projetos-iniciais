@@ -1,0 +1,23 @@
+distancia = 11
+chovendo = True
+tx_5_km = 5
+tx_5_10_KM = 8
+tx_10_KM = 10
+tx_chovendo = 2
+
+if distancia < 5 and chovendo:
+    preco = tx_5_km + tx_chovendo
+    print("Preço a pagar: R$", preco)
+elif distancia >= 5 and distancia <= 10 and chovendo:
+    preco = tx_5_10_KM + tx_chovendo
+    print("Preço a pagar: R$", preco)
+elif distancia > 10 and chovendo:
+    preco = tx_10_KM + tx_chovendo
+    print("Preço a pagar: R$", preco)
+else:
+    if distancia < 5:
+        print("Preço a pagar: R$", tx_5_km)
+    elif distancia >= 5 and distancia <= 10:
+        print("Preço a pagar: R$", tx_5_10_KM)
+    else:
+        print("Preço a pagar: R$", tx_10_KM)

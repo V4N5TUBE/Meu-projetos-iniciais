@@ -1,0 +1,12 @@
+idade = 12
+estudante = False
+preco_total = 40
+
+if idade >= 18 or estudante:
+    preco = preco_total / 2
+    print("Meia-Entrada aplicada")
+else:
+    preco = preco_total
+
+    print("valor a pagar: R$", preco)
+   

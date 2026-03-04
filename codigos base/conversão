@@ -1,0 +1,14 @@
+#função
+def conversor_temperatura(celsius):
+	return (celsius * 9/5) + 32
+
+#exemplo de uso
+print('conversor de temperatura')
+print('digite a temperatura em celsius: ')
+c = float(input())
+
+f = conversor_temperatura(c)
+print(f'{c} graus celsius é igual a {f} graus fahrenheit')
+
+#o (C) e a quantidade de graus celsius que o usuário digitou, e o (F) é a temperatura convertida para fahrenheit.
+#ja o DEF que e combinada com o f mais puxado para a função, e o return que é a resposta da função, ou seja, o resultado da conversão.
