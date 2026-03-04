@@ -17,7 +17,7 @@ def exibir_nome_do_programa():
 
 def exibir_opcoes():
     """essa funcao tem a responsabilidade de exibir as opcoes para o usuario"""
-    print('1. Cadastrar restaurante')
+    print('1. Cadastrar restaurantes')
     print('2. Listar restaurantes')
     print('3. Ativar restaurante')
     print('4. Sair\n')
