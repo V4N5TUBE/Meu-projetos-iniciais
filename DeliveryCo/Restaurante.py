@@ -1,6 +1,8 @@
-from AVAliacao import Avaliacao
+from DeliveryCo.avaliacao import Avaliar
+
 class Restaurante:
     restaurantes = []
+
     def __init__(self, nome, categoria):
         self.nome = nome.title()
         self.categoria = categoria.upper()
@@ -15,17 +17,17 @@ class Restaurante:
     def listar_restaurantes(cls):
         print (f"{"nome do restaurante".ljust(31)} | {"categoria".ljust(36)} | {"Avaliacao".ljust(31)} | {"status"}")
         for restaurante in cls.restaurantes:
-            print (f"{restaurante.nome.ljust(25)} | {restaurante.categoria.ljust(25)} | {restaurante._ativo.ljust(25)} | {restaurante.media_avaliacao.ljust(25)}")
+            print (f"{restaurante.nome.ljust(31)} | {restaurante.categoria.ljust(36)} | {str(restaurante._ativo).ljust(31)} | {str(restaurante.media_avaliacao).ljust(25)}")
 
     @property
     def ativo(self):
-        return "Verdadeiro" if self._ativo else "Falso"
+        return "ativo" if self._ativo else "inativo"
     
     def alternar_ativo(self):
         self._ativo = not self._ativo
 
     def receber_avaliacao(self, cliente, nota):
-        avaliacao = Avaliacao(cliente, nota)
+        avaliacao = Avaliar(cliente, nota)
         self._avaliacao.append(avaliacao)
 
     @property
@@ -34,7 +36,7 @@ class Restaurante:
             return 0
         soma_das_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
         quantidade_nota = len(self._avaliacao)
-        media = round(soma_das_notas / quantidade_nota,1)
+        media = round(soma_das_notas / quantidade_nota, 1)
         return media 
 
 
