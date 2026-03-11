@@ -27,13 +27,14 @@ class Restaurante:
         self._ativo = not self._ativo
 
     def receber_avaliacao(self, cliente, nota):
-        avaliacao = Avaliar(cliente, nota)
-        self._avaliacao.append(avaliacao)
+        if 0 < nota <= 5:
+            avaliacao = Avaliar(cliente, nota)
+            self._avaliacao.append(avaliacao)
 
     @property
     def media_avaliacao(self):
         if not self._avaliacao:
-            return 0
+            return "-"
         soma_das_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
         quantidade_nota = len(self._avaliacao)
         media = round(soma_das_notas / quantidade_nota, 1)
@@ -125,8 +126,11 @@ criamos a media e colocando o round que faz com que a nota seja arredonda para u
 
 17- coloquei o propety para que a nota seja lida 
 
+18- tinha que executar o arquivo do app restaurant e dps colocar o str na linha 20 na part do self.ativo para ele 
+identificar que o false ou true e texto
 
+19- depois troquei o return 0 para "-" para que quando nao tivesse avaliacao numerica ele coloca o traco
 
-verificar porque nao esta dando o print erro no import avaliacao
+20- depois coloquei uma condicao de que apenas as notas de 0-5 pode ser colocada no parametro se nao, nao contabilizaram na formula 
  """
  
