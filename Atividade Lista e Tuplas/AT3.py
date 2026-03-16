@@ -1,0 +1,11 @@
+voluntarios = []
+
+while True:
+    nome = input("Digite o nome do voluntário (ou 'sair' para encerrar): ")
+    if nome.lower() == 'sair':
+        break
+    voluntarios.append(nome)  
+
+print("\nVoluntários registrados:", voluntarios)
+
+"""armazenar nomes se escrever sair ele encerra"""
