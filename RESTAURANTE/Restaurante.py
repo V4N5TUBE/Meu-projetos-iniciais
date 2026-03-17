@@ -1,4 +1,5 @@
-from DeliveryCo.avaliacao import Avaliar
+from RESTAURANTE.avaliacao import Avaliar
+from RESTAURANTE.cardapio.itens_cardapio import Itemcardapio
 
 class Restaurante:
     restaurantes = []
@@ -8,6 +9,7 @@ class Restaurante:
         self.categoria = categoria.upper()
         self._ativo = False
         self._avaliacao = []
+        self._cardapio = []
         Restaurante.restaurantes.append(self)
 
     def __str__(self):
@@ -39,6 +41,21 @@ class Restaurante:
         quantidade_nota = len(self._avaliacao)
         media = round(soma_das_notas / quantidade_nota, 1)
         return media 
+
+    def adicionar_cardapio(self,item):
+        if isinstance(item,Itemcardapio):
+            self._cardapio.append(item)
+
+    @property
+    def exibir_cardapio(self):
+            print(f'Cardapio do restaurante {self.nome}\n')
+            for i,item in enumerate(self._cardapio,start=1):
+                if hasattr(item,"descricao"):
+                    mensagem_prato = f"{i}. Nome: {item._nome} | Preço: R${item._preco} | Descricao: {item.descricao}"
+                    print(mensagem_prato)
+                else:
+                    mensagem_bebida = mensagem_prato = f"{i}. Nome: {item._nome} | Preço: R${item._preco} | Tamanho: {item.tamanho}"
+                    print(mensagem_bebida)
 
 
 
@@ -132,5 +149,33 @@ identificar que o false ou true e texto
 19- depois troquei o return 0 para "-" para que quando nao tivesse avaliacao numerica ele coloca o traco
 
 20- depois coloquei uma condicao de que apenas as notas de 0-5 pode ser colocada no parametro se nao, nao contabilizaram na formula 
+
+21-Existe uma função no Python chamada isinstance(), que verifica se o item que estamos adicionando é uma instância de itemCardapio.
+Digitamos if isinstance(item, itemCardapio).
+
+precisamos importar itemCardapio. Lá no início do arquivo, lembram quando estávamos importando a avaliação? Aplicamos a mesma coisa:
+from modelos.cardapio import itemCardapio. Este itemCardapio é a classe base que criamos.
+
+Contudo, nesta ocasião, ao invés de criarmos entidades distintas para bebida e prato, optamos por utilizar self._cardapio.append().
+Se aprovado, adicionamos o item através de append().
+
+22-exibir_cardapio(), inserimos uma anotação @property para informar que isso será uma propriedade de leitura apenas. 
+
+para fins de organização, inserimos um print(f'') (fstring) com uma informação simples de qual é o cardápio que estamos acessando.
+
+Ao lidar com uma lista, podemos empregar um loop for, conforme já demonstrado previamente. Existe uma abordagem mais simples para
+enumerar o cardápio? :função enumerate()
+
+enumerate() vai devolver sempre duas informações: o índice que desejamos e o próprio item. Podemos escrever, por exemplo, for i,
+item in enumerate(self._ cardapio, start=1). Aqui, i simboliza o índice.
+
+enumerate() normalmente inicia a enumeração a partir do 0, no entanto, começar do 1 faz mais sentido. Pense em solicitar o
+item 0 da lista e receber um pãozinho - não faria sentido. Portanto, estamos definindo start=1 para iniciar a enumeração a partir
+do número 1.
+
+23- tiver if hasattr(item, 'descricao'):, ele vai imprimir como prato. Caso tenha hasattr(item, 'tamanho'),
+imprimirá como bebida. E imprimimos a mensagem correspondente para cada caso. Se for um prato, imprimimos a descrição;
+se for uma bebida, imprimimos o tamanho.
+
  """
  
