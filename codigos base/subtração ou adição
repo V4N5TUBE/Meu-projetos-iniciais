@@ -1,9 +1,0 @@
-# a = 5     -> Variável a
-# b = 2     -> Variável b
-# c = a - b -> Variável c
-# exibir (c)
-a = 5
-b = 2
-c = a - b
-print(c)
-#NO CASO E SO TROCA O SIMBOLO DE SUBTRAÇÃO PELO DE ADIÇÃO
